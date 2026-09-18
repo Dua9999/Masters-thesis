@@ -1,216 +1,214 @@
-//================================================
-// IMAGE FILES
-//================================================
+const skincareImage = "sk*ncare-product.png";
+const kpopImag* = "kpop-album.png";
 
-const skincareImage = "skincare-product.png";
-const kpopImage = "kpop-album.png";
+const params*= new URLSearchParams(window.locat*on.search);
 
-//================================================
-// URL PARAMETERS
-//================================================
+const domain = params*get("domain") || "skincare";
+const*condition = params.get("condition"* || "control";
 
-const params = new URLSearchParams(window.location.search);
+const brand = docu*ent.getElementById("brand");
+const*cart = document.getElementById("ca*t");
+const image = document.getEle*entById("productImage");
+const tit*e = document.getElementById("produ*tTitle");
+const subtitle = documen*.getElementById("subtitle");
+const*price = document.getElementById("p*ice");
+const statusBox = document.*etElementById("statusBox");
+const *ersionGrid = document.getElementBy*d("versionGrid");
+const completion*anner = document.getElementById("c*mpletionBanner");
+const footerNote*= document.getElementById("footerN*te");
+const ctaButton = document.g*tElementById("ctaButton");
 
-const domain =
-params.get("domain") || "skincare";
+//
+// *KINCARE
+//
 
-const condition =
-params.get("condition") || "control";
+if(domain === "skincar*"){
 
-//================================================
-// ELEMENTS
-//================================================
+brand.textContent = "APHRODIT* GLOW";
+image.src = skincareImage;*
+title.textContent = "Vitamin C Se*um";
 
-const image =
-document.getElementById("product-image");
+subtitle.textContent =
+"Brig*tening Facial Serum | 30 ml";
 
-const brand =
-document.getElementById("brand");
+pri*e.textContent = "€10.90";
 
-const title =
-document.getElementById("title");
+footerN*te.textContent =
+"Dermatologist te*ted. Suitable for everyday skincar* routine.";
 
-const price =
-document.getElementById("price");
+versionGrid.style.dis*lay = "none";
 
-const description =
-document.getElementById("description");
+if(condition === "c*ntrol"){
 
-const progressText =
-document.getElementById("progress-text");
+cart.textContent = "🛒 C*rt (0)";
 
-const versionGrid =
-document.getElementById("version-grid");
-
-const cta =
-document.getElementById("cta");
-
-//================================================
-// SKINCARE
-//================================================
-
-if(domain === "skincare"){
-
-image.src = skincareImage;
-
-brand.textContent =
-"APHRODITE GLOW";
-
-title.textContent =
-"Vitamin C Serum";
-
-price.textContent =
-"€10.90";
-
-versionGrid.style.display = "none";
-
-if(condition === "control"){
-
-progressText.textContent =
-"🛒 Cart (4 Items)";
-
-description.innerHTML = `
-<div class="description-box">
-Brightening Vitamin C serum formulated
-to support radiant, healthy-looking skin.
-</div>
+statusBox.innerHTML = `
+*div class="status-box">
+Premium Vi*amin C serum formulated to support*radiant and healthy-looking skin.
+*/div>
 `;
 
-cta.textContent =
-"Add to Cart";
+ctaButton.textContent =
+*ADD TO CART";
 
-cta.className =
-"standard";
+ctaButton.className*=
+"cta-control";
 
 }
 
-if(condition === "treatment"){
+if(condition *== "treatment"){
 
-progressText.innerHTML =
-"🛒 Ritual Progress: <strong>80% Complete</strong>";
+cart.textContent*= "🛒 Cart (0)";
 
-description.innerHTML = `
-<div class="completion-box">
-<strong>You're almost there.</strong><br>
-4 of 5 products in your skincare ritual
-are already selected. Add this serum to
-complete your ritual.
-</div>
+completionBanner*style.display = "block";
+
+completi*nBanner.innerHTML = `
+<b>COMPLETE *OUR ROUTINE</b><br>
+You already ha*e 4 of 5 products.
+Add the serum t* complete it.
 `;
 
-cta.textContent =
-"Complete My Ritual";
+statusBox.innerH*ML = `
+<div class="status-box">
+<b*ROUTINE STATUS</b><br>
+Step 5 of 5*br>
+(1 Product Remaining)
+</div>
+`*
 
-cta.className =
-"treatment";
+ctaButton.textContent =
+"COMPLET* MY RITUAL";
+
+ctaButton.className *
+"cta-treatment";
 
 }
 
 }
 
-//================================================
-// KPOP
-//================================================
+//
+// KPO*
+//
 
 if(domain === "kpop"){
 
-image.src = kpopImage;
+brand*textContent = "K RECORDS";
 
-brand.textContent =
-"K RECORDS";
+image.*rc = kpopImage;
 
-title.textContent =
-"DNE – 1st Mini Album";
+title.textContent*=
+"DNE - 1st Mini Album";
 
-price.textContent =
+subtitl*.textContent =
+"Official Member Ve*sion | Limited Edition Set";
+
+pric*.textContent =
 "€25.99";
 
-const versions =
-["A","B","C","D","E","F"];
+footerNo*e.textContent =
+"All sales count t*wards Hanteo and Circle charts.";
+*if(condition === "control"){
 
-versions.forEach(v=>{
+cart*textContent =
+"🛒 Cart (0)";
 
-const item =
-document.createElement("div");
+stat*sBox.innerHTML = `
+<div class="sta*us-box">
+Select Album Version
+</di*>
+`;
 
-item.className =
-"version";
+["A","B","C","D","E","F"].fo*Each(v=>{
 
-item.textContent =
-`Version ${v}`;
+const div = document.cr*ateElement("div");
 
-versionGrid.appendChild(item);
+div.className * "version";
+
+div.textContent = v;
+*versionGrid.appendChild(div);
+
+});*
+ctaButton.textContent =
+"ADD TO C*RT";
+
+ctaButton.className =
+"cta-c*ntrol";
+
+}
+
+if(condition === "trea*ment"){
+
+cart.textContent =
+"🛒 Ca*t (0)";
+
+completionBanner.style.di*play = "block";
+
+completionBanner.*nnerHTML = `
+<b>COMPLETE YOUR COLL*CTION</b><br>
+You already have 5 o* 6 versions.
+Add Member F to compl*te it.
+`;
+
+statusBox.innerHTML = `*<div class="status-box">
+<b>COLLEC*ION STATUS</b><br>
+83% Complete (5*6 Secured)
+</div>
+`;
+
+["A","B","C"*"D","E"].forEach(v=>{
+
+const div =*document.createElement("div");
+
+di*.className =
+"version owned";
+
+div*textContent =
+`${v} ✓`;
+
+versionGr*d.appendChild(div);
 
 });
 
-if(condition === "control"){
+const mi*sing =
+document.createElement("div*);
 
-progressText.textContent =
-"🛒 Cart (5 Items)";
+missing.className =
+"version m*ssing";
 
-description.innerHTML = `
-<div class="description-box">
-Select your preferred album version.
-</div>
-`;
+missing.textContent =
+"F"*
 
-cta.textContent =
-"Add to Cart";
+versionGrid.appendChild(missing)*
 
-cta.className =
-"standard";
+ctaButton.textContent =
+"COMPLET* MY COLLECTION";
 
-}
-
-if(condition === "treatment"){
-
-progressText.innerHTML =
-"🛒 Collection Progress: <strong>83% Complete</strong>";
-
-description.innerHTML = `
-<div class="completion-box">
-<strong>Only one version remains.</strong><br>
-5 of 6 versions have already been collected.
-Add the final version to complete the collection.
-</div>
-`;
-
-cta.textContent =
-"Complete My Collection";
-
-cta.className =
-"treatment";
+ctaButton.classN*me =
+"cta-treatment";
 
 }
 
 }
 
-//================================================
-// TOAST
-//================================================
+//
+//*TOAST + QUALTRICS
+//
 
-cta.addEventListener("click", () => {
+ctaButton.ad*EventListener("click",()=>{
 
-const toast =
-document.getElementById("toast");
+const*toast =
+document.getElementById("t*ast");
 
-toast.textContent =
-"Added to Cart";
+toast.classList.add("show"*;
 
-toast.classList.add("show");
-
-setTimeout(() => {
-
-toast.classList.remove("show");
-
+setTimeout(()=>{
+toast.classLis*.remove("show");
 },2000);
 
-// Qualtrics Tracking
-
-window.parent.postMessage({
-event:"product_click",
+window.*arent.postMessage({
+event:"product*click",
 domain:domain,
-condition:condition
+condition:c*ndition
 },"*");
 
 });
