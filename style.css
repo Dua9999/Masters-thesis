@@ -5,24 +5,24 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Arial,sans-serif;
-background:#f7f7f7;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:#f6f6f6;
 color:#222;
 }
 
-.page{
+.wrapper{
 max-width:1300px;
 margin:auto;
 padding:30px;
 }
 
-.product-container{
-background:white;
-padding:40px;
-border-radius:15px;
+.product-page{
 display:flex;
 gap:50px;
-box-shadow:0 4px 12px rgba(0,0,0,.08);
+background:#fff;
+padding:35px;
+border-radius:18px;
+box-shadow:0 3px 12px rgba(0,0,0,0.08);
 }
 
 .image-column{
@@ -31,55 +31,60 @@ flex:1.2;
 
 .image-column img{
 width:100%;
+display:block;
 border-radius:12px;
 }
 
 .content-column{
 flex:0.8;
+display:flex;
+flex-direction:column;
+}
+
+.top-bar{
+display:flex;
+justify-content:flex-end;
+margin-bottom:20px;
+}
+
+#progress-text{
+font-size:14px;
+color:#666;
 }
 
 .brand{
 font-size:12px;
-font-weight:bold;
 letter-spacing:3px;
-color:#777;
-margin-bottom:15px;
-}
-
-.condition-badge{
-display:none;
-}
-
-.condition-badge.active{
-display:inline-block;
-padding:8px 12px;
-background:#f2eaff;
-color:#6f2cff;
-border-radius:100px;
-margin-bottom:14px;
+font-weight:700;
+color:#888;
+margin-bottom:12px;
 }
 
 h1{
-font-size:32px;
+font-size:34px;
 margin-bottom:10px;
 }
 
 .price{
 font-size:28px;
-font-weight:bold;
+font-weight:600;
 margin-bottom:20px;
 }
 
-.description{
-margin-bottom:25px;
+.description-box{
+font-size:16px;
 line-height:1.6;
+margin-bottom:25px;
+color:#555;
 }
 
-.condition-message{
+.completion-box{
 background:#faf7ff;
-padding:18px;
+border:1px solid #e6dcff;
+padding:16px;
 border-radius:12px;
 margin-bottom:25px;
+line-height:1.6;
 }
 
 #version-grid{
@@ -90,29 +95,27 @@ margin-bottom:25px;
 }
 
 .version{
-padding:20px;
+padding:16px;
 text-align:center;
-border:1px solid #ccc;
-border-radius:12px;
-}
-
-.owned{
-background:#eee;
-color:#999;
-}
-
-.missing{
-background:#f4ecff;
-border:2px solid #7b3cff;
-color:#7b3cff;
+border:1px solid #ddd;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
 }
 
 button{
-border:none;
+width:100%;
 padding:16px;
+border:none;
 border-radius:12px;
 font-size:16px;
+font-weight:600;
 cursor:pointer;
+transition:.2s;
+}
+
+button:hover{
+opacity:.95;
 }
 
 .standard{
@@ -121,7 +124,7 @@ color:white;
 }
 
 .treatment{
-background:#7b3cff;
+background:#6d3cf5;
 color:white;
 }
 
@@ -131,7 +134,7 @@ bottom:25px;
 right:25px;
 background:#111;
 color:white;
-padding:15px;
+padding:14px 20px;
 border-radius:10px;
 opacity:0;
 transition:.3s;
@@ -143,13 +146,27 @@ opacity:1;
 
 @media(max-width:600px){
 
-.product-container{
+.wrapper{
+padding:10px;
+}
+
+.product-page{
 flex-direction:column;
-padding:20px;
+padding:18px;
+gap:20px;
 }
 
 #version-grid{
 grid-template-columns:repeat(2,1fr);
 }
 
+h1{
+font-size:28px;
 }
+
+.price{
+font-size:24px;
+}
+
+}
+`
