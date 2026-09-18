@@ -3,47 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Product Study</title>
-
+<title>Mobile Storefront Mockup</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="wrapper">
+<div class="phone-store">
 
-    <div class="product-page">
-
-        <div class="image-column">
-            <img id="product-image" alt="Product">
-        </div>
-
-        <div class="content-column">
-
-            <div class="top-bar">
-                <div id="progress-text"></div>
-            </div>
-
-            <div class="brand" id="brand"></div>
-
-            <h1 id="title"></h1>
-
-            <div class="price" id="price"></div>
-
-            <div id="description"></div>
-
-            <div id="version-grid"></div>
-
-            <button id="cta"></button>
-
-        </div>
-
+    <div class="header-row">
+        <div class="brand" id="brand"></div>
+        <div class="cart" id="cart"></div>
     </div>
+
+    <div id="completionBanner" class="completion-banner"></div>
+
+    <div class="image-container">
+        <img id="productImage" alt="Product">
+    </div>
+
+    <h1 id="productTitle"></h1>
+
+    <div class="subtitle" id="subtitle"></div>
+
+    <div class="price" id="price"></div>
+
+    <div id="statusBox"></div>
+
+    <div id="versionGrid"></div>
+
+    <button class="details-btn">
+        ▼ View Product Details & Info
+    </button>
+
+    <button id="ctaButton"></button>
+
+    <div class="footer-note" id="footerNote"></div>
 
 </div>
 
-<div id="toast" class="toast"></div>
+<div id="toast" class="toast">
+    Added to Cart
+</div>
 
 <script src="script.js"></script>
 
